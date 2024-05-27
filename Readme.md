@@ -1,8 +1,8 @@
 | | | | |
 |-|-|-|-|
-|Easy|Ideal Time : 5-10 mins| | |
-|Medium|Ideal Time : 15-20 mins|5 Questions each Day| |
-|Hard|Ideal Time : 40-60 mins (based on Qs) "| 88 Qs| | |
+|Easy(E)|Ideal Time : 5-10 mins| | |
+|Medium(M)|Ideal Time : 15-20 mins|5 Questions each Day| |
+|Hard(H)|Ideal Time : 40-60 mins (based on Qs) (88 Qs)| | | |
 | | | | |
 | | | | |
 |Topics|Question (375)|Companies|Remarks|
