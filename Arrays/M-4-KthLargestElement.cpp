@@ -26,9 +26,6 @@ int kthLargestElement(vector<int>nums, int k){
 
     // 🚀Without Sorting
     int array = nums;
-    for(int i =0; i < array.size(); i++){
-        
-    }
 
     return array[k-1];
 }
