@@ -1,5 +1,5 @@
 /*
-Repeat and Missing Array
+Repeated and Missing Array
 */
 
 #include <iostream>
