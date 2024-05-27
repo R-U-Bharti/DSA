@@ -47,38 +47,38 @@ void printArray(vector<int> &arr)
 
 void nextPermutation(vector<int> &arr)
 {
-    if (arr.size() == 1)
+    if (arr.size() <= 1) // check array size, must be greater that 1
     {
         return;
     }
 
-    int idx = INT_MIN;
-    for (int i = arr.size() - 2; i >= 0; i--)
+    int idx = INT_MIN; // initali first index to get the minimum value
+    for (int i = arr.size() - 2; i >= 0; i--) // iterate array from ignore last one element to inital element
     {
-        if (arr[i] < arr[i + 1])
+        if (arr[i] < arr[i + 1]) // check if previous element is less than next element
         {
-            idx = i;
+            idx = i; // store first index
             break;
         }
     }
 
-    if (idx < 0)
+    if (idx < 0) // if not found first index
     {
-        reverse(arr.begin(), arr.end());
+        reverse(arr.begin(), arr.end()); // reverse the array because it is the last permutation
     }
     else
     {
-        int idx2 = 0;
-        for (int i = arr.size() - 1; i >= 0; i--)
+        int idx2 = 0; // Otherwise initialse second index to swap
+        for (int i = arr.size() - 1; i >= 0; i--) // iterate array to end because it can swap to end of the element too
         {
-            if (arr[i] > arr[idx])
+            if (arr[i] > arr[idx]) // check the element is just greater than the found element
             {
-                idx2 = i;
+                idx2 = i; // store the second index
                 break;
             }
         }
-        swap(arr[idx], arr[idx2]);
-        reverse(arr.begin() + idx + 1, arr.end());
+        swap(arr[idx], arr[idx2]); // swap the elements
+        reverse(arr.begin() + idx + 1, arr.end()); // reverse the array from the swapped element, so that it becomes the minumum next permutation
     }
 
 }
