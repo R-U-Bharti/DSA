@@ -27,96 +27,64 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 #include <limits.h>
 using namespace std;
 
-int getMaxProfit(vector<int> &arr, int idx)
+int getMaxProfit(vector<int> arr)
 {
+    if (arr.size() <= 1)
+    {
+        return 0;
+    }
+
     int max_profit = 0;
-    int buy_index = 0;
-    int sell_index = 0;
+    int buy = arr[0];
 
-    int max_index = idx;
-    for (int i = idx + 1; i < arr.size() - 1; i++)
+    // Brute Force approach
+    // for (int i = 0; i <= arr.size() - 1; i++) // iterate array to select element
+    // {
+    //     for (int j = i + 1; j < arr.size(); j++) // iterate again to loop over the array
+    //     {
+    //         int temp = arr[j] - arr[i]; // store temperory difference
+    //         if (max_profit < temp) // check temp is max or not
+    //         {
+    //             max_profit = temp; // update max_profit
+    //         }
+    //     }
+    // }
+
+    // conditionally return max_profit
+    // if (max_profit <= 0)
+    // {
+    //     return 0;
+    // }
+    // else
+    // {
+    //     return max_profit;
+    // }
+
+// Kandane's Algo
+    for (int i = 1; i < arr.size(); i++) // iterate array
     {
-        if (arr[max_index] < arr[i + 1])
-        {
-            max_index = i + 1;
-        }
-    }
-cout<<endl;
-cout << "idx -->" << idx << endl;
-cout << "max_index -->" << max_index << endl;
-
-for (int i = idx + 1; i <= max_index; i++)
-{
-    int temp = INT_MAX;
-    if (arr[i] < temp)
-    {
-        buy_index = i;
-        temp = arr[i];
-    }
+        max_profit = max(max_profit, arr[i] - buy); // fetch the maximum element
+        buy = min(arr[i], buy); // update the buy
     }
 
-    max_profit = arr[max_index] - arr[buy_index];
-
-    if (max_profit == 0)
-    {
-        if (max_index == arr.size() - 1)
-        {
-            return max_profit;
-        }
-        else
-        {
-            return getMaxProfit(arr, max_index);
-        }
-    }
-
-    cout << "max" << max_index << " " << "min index" << buy_index << "===>";
     return max_profit;
 }
 
-// int maxProfitDay(vector<int> &arr)
-// {
-//     int max_profit = 0;
-//     int buy_index = 0;
-//     int sell_index = 0;
-
-//     int max_profit_index = 0;
-//     for (int i = 0; i < arr.size() - 1; i++)
-//     {
-//         if (arr[max_profit_index] < arr[i + 1])
-//         {
-//             max_profit_index = i+1;
-//         }
-//     }
-
-//     for (int i = 0; i < max_profit_index; i++)
-//     {
-//         if (arr[i] < arr[i + 1])
-//         {
-//             buy_index = i;
-//         }
-//     }
-
-//     max_profit = arr[max_profit_index] - arr[buy_index];
-
-//     if(max_profit == 0){
-//         if(max_profit_index == arr.size()-1){
-//             return max_profit;
-//         } else {
-//             return getMaxProfit(arr, max_profit_index);
-//         }
-//     }
-
-//     return max_profit;
-// }
-
 int main()
 {
-    // vector<int> prices = {2, 4, 1};
-    // vector<int> prices = {7, 6, 4, 3, 1};
-    vector<int> prices = {7, 1, 5, 3, 6, 4};
-    // vector<int> prices = {3, 2, 6, 5, 0, 3};
+    vector<int> prices0 = {1, 2};
+    vector<int> prices1 = {2, 4, 1};
+    vector<int> prices2 = {7, 6, 4, 3, 1};
+    vector<int> prices3 = {7, 1, 5, 3, 6, 4};
+    vector<int> prices4 = {7, 1, 5, 3, 0, 2};
+    vector<int> prices5 = {3, 2, 6, 5, 0, 3};
 
-    cout << "Maximum profit: " << getMaxProfit(prices, -1);
+    cout << "Maximum profit: " << getMaxProfit(prices0) << endl;
+    cout << "Maximum profit: " << getMaxProfit(prices1) << endl;
+    cout << "Maximum profit: " << getMaxProfit(prices2) << endl;
+    cout << "Maximum profit: " << getMaxProfit(prices3) << endl;
+    cout << "Maximum profit: " << getMaxProfit(prices4) << endl;
+    cout << "Maximum profit: " << getMaxProfit(prices5) << endl;
 
     return 0;
 }
