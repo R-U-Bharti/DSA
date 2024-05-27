@@ -10,13 +10,13 @@ using namespace std;
 
 int getMin(int A[], int n)
 {
-    int mini = INT_MAX;
+    int mini = INT_MAX; // initialize to store element by assigning max value
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) // Loop for array
     {
-        if (A[i] < mini)
+        if (A[i] < mini) // checking each element
         {
-            mini = A[i];
+            mini = A[i]; // store in min variable
         }
     }
 

@@ -1,6 +1,6 @@
 /*
 Contains Duplicate
-Time Complexity:
+Time Complexity: O(n^2)
 
 Example 1:
 
@@ -24,14 +24,15 @@ Output: true
 #include<algorithm>
 using namespace std;
 
+// Brute force algorithm
 bool checkDuplicate (vector<int>arr){
     bool flag = false;
     int size = arr.size();
 
-    for(int i=0; i<size; i++){
-        for(int j=i+1; j<size; j++){
-            if(arr[i] == arr[j]){
-                flag = true;
+    for(int i=0; i<size; i++){ // iterate array
+        for(int j=i+1; j<size; j++){ // iterate again to check element to whole array
+            if(arr[i] == arr[j]){ // check if it's equal
+                flag = true; // set flag true
             }
         }
     }
