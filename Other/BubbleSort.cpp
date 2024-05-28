@@ -1,3 +1,33 @@
+/*
+BUBBLE SORT
+======================================
+
+Description:
+Suppose we are trying to sort the elements in ascending order.
+
+1. First Iteration (Compare and Swap)
+-------------------------------------------
+i. Starting from the first index, compare the first and the second elements.
+ii. If the first element is greater than the second element, they are swapped.
+iii. Now, compare the second and the third elements. Swap them if they are not in order.
+iv. The above process goes on until the last element.
+
+2. Remaining Iteration
+--------------------------------------------
+# The same process goes on for the remaining iterations.
+# After each iteration, the largest element among the unsorted elements is placed at the end.
+# In each iteration, the comparison takes place up to the last unsorted element.
+# The array is sorted when all the unsorted elements are placed at their correct positions.
+
+Description for "swapped" variable:
+--------------------------------------------
+Added extra variable "swapped", the value of swapped is set true if there occurs swapping of elements. Otherwise, it is set false.
+After an iteration, if there is no swapping, the value of swapped will be false. This means elements are already sorted and 
+there is no need to perform further iterations.
+This will reduce the execution time and helps to optimize the bubble sort.
+
+*/
+
 #include <iostream>
 #include <vector>
 using namespace std;

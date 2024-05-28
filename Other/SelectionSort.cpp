@@ -8,7 +8,9 @@ void printArray(vector<int> arr)
         cout << nums << " ";
 }
 
-void swap (int *a, int *b){
+// function to swap two elements, argument is pointer
+void swap(int *a, int *b)
+{
     int temp = *a;
     *a = *b;
     *b = temp;
@@ -17,23 +19,18 @@ void swap (int *a, int *b){
 void selectionSort(vector<int> arr)
 {
     int size = arr.size();
-    int temp = 0;
-    int swapped = 0;
+    int min_idx = 0;
 
     for (int i = 0; i < size; i++)
     {
-        swapped = 0;
-        for (int j = 0; j < size - i - 1; j++)
-        {
-            if (arr[j] > arr[j + 1])
-            {
-                swap(&arr[j], &arr[j+1]);
-                swapped = 1;
-            }
-        }
+        min_idx = i;
 
-        if (swapped == 0)
-            break;
+        for (int j = 0; j < size; j++)
+        {
+            if (arr[j] > arr[min_idx])
+                min_idx = j;
+        }
+        swap(&arr[min_idx], &arr[i]);
     }
 
     printArray(arr);
