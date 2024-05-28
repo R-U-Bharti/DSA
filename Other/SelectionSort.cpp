@@ -37,16 +37,18 @@ void selectionSort(vector<int> arr)
     int size = arr.size();
     int min_idx = 0;
 
-    for (int i = 0; i < size; i++)
+    for (int step = 0; step < size - 1; step++)
     {
-        min_idx = i;
-
-        for (int j = 0; j < size; j++)
+        int min_idx = step;
+        for (int j = step + 1; j < size; j++)
         {
-            if (arr[j] > arr[min_idx])
+            if (arr[j] < arr[min_idx])
+            {
                 min_idx = j;
+                cout << j << "->";
+            }
         }
-        swap(&arr[min_idx], &arr[i]);
+        swap(&arr[min_idx], &arr[step]);
     }
 
     printArray(arr);
