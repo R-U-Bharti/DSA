@@ -27,6 +27,7 @@ void printArray(vector<int> arr)
 // function to swap two elements, argument is pointer
 void swap(int *a, int *b)
 {
+    cout << " | " << *b << "->" << *a << endl;
     int temp = *a;
     *a = *b;
     *b = temp;
@@ -34,23 +35,31 @@ void swap(int *a, int *b)
 
 void selectionSort(vector<int> arr)
 {
-    int size = arr.size();
-    int min_idx = 0;
+    int size = arr.size(); // init size
+    int min_idx = 0; // init minimum index to swap the element
 
-    for (int step = 0; step < size - 1; step++)
+    for (int step = 0; step < size - 1; step++) // array iterate step wise
     {
-        int min_idx = step;
-        for (int j = step + 1; j < size; j++)
+        int min_idx = step; // update minimum index to initial step
+        for (int j = step + 1; j < size; j++) // iterate array from step + 1 to compare
         {
-            if (arr[j] < arr[min_idx])
+            if (arr[j] < arr[min_idx]) // check throughout iteration to find the minimum index to swap
             {
-                min_idx = j;
-                cout << j << "->";
+                min_idx = j; // update minimum index
             }
         }
-        swap(&arr[min_idx], &arr[step]);
+        cout << "Before: ";
+        printArray(arr);
+        cout << endl;
+        cout << step << "->" << min_idx;
+        swap(&arr[min_idx], &arr[step]); // Swap the found index to current step
+        cout << "After: ";
+        printArray(arr);
+        cout << endl;
+        cout << endl;
     }
 
+    cout << "Final Sorted Array by Selection Sort: ";
     printArray(arr);
 }
 
@@ -58,11 +67,11 @@ int main()
 {
     vector<int> arr = {23, 9, 134, 2, 0, 50};
 
-    cout << "Your array: " << endl;
+    cout << "Your array: ";
     printArray(arr);
 
     cout << endl;
     cout << endl;
-    cout << "Selection Sort: " << endl;
+    cout << "Sorting Process: " << endl;
     selectionSort(arr);
 }
