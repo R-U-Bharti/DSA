@@ -38,11 +38,11 @@ void selectionSort(vector<int> arr)
     cout << "Sorting Process: " << endl;
 
     int size = arr.size(); // init size
-    int min_idx = 0; // init minimum index to swap the element
+    int min_idx = 0;       // init minimum index to swap the element
 
     for (int step = 0; step < size - 1; step++) // array iterate step wise
     {
-        int min_idx = step; // update minimum index to initial step
+        int min_idx = step;                   // update minimum index to initial step
         for (int j = step + 1; j < size; j++) // iterate array from step + 1 to compare
         {
             if (arr[j] < arr[min_idx]) // check throughout iteration to find the minimum index to swap
