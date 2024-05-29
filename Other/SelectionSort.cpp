@@ -35,6 +35,8 @@ void swap(int *a, int *b)
 
 void selectionSort(vector<int> arr)
 {
+    cout << "Sorting Process: " << endl;
+
     int size = arr.size(); // init size
     int min_idx = 0; // init minimum index to swap the element
 
@@ -72,6 +74,5 @@ int main()
 
     cout << endl;
     cout << endl;
-    cout << "Sorting Process: " << endl;
     selectionSort(arr);
 }
