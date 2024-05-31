@@ -16,9 +16,9 @@ void conquer(vector<int> &arr, int si, int mid, int ei)
 {
     vector<int> merge(ei - si + 1); // init new array to store temperory of maximum size
 
-    int idx1 = si; // first index of left part
+    int idx1 = si;      // first index of left part
     int idx2 = mid + 1; // second index of right part
-    int x = 0; // initial point
+    int x = 0;          // initial point
 
     while (idx1 <= mid && idx2 <= ei) // iterate parallely both parts
     {
@@ -35,15 +35,15 @@ void conquer(vector<int> &arr, int si, int mid, int ei)
         x++; // increase the index point of new array
     }
 
-    // while only one condition is true it means some elements are left to store
-    while (idx1 <= mid)
+    // while only one condition is true it means some elements are left to store in new array
+    while (idx1 <= mid) // for left part
     {
         merge[x] = arr[idx1];
         x++;
         idx1++;
     }
 
-    while (idx2 <= ei)
+    while (idx2 <= ei) // for right part
     {
         merge[x] = arr[idx2];
         x++;
@@ -57,13 +57,13 @@ void conquer(vector<int> &arr, int si, int mid, int ei)
 
 void mergeSort(vector<int> &arr, int si, int ei)
 {
-    //check si and ei is valid or not
+    // check si and ei is valid or not
     if (si >= ei)
         return;
 
     int mid = (si + ei) / 2; // take out the mid index
 
-    mergeSort(arr, si, mid); // recursion with left part to divide
+    mergeSort(arr, si, mid);     // recursion with left part to divide
     mergeSort(arr, mid + 1, ei); // recursion with right part to divide
 
     conquer(arr, si, mid, ei); // calling function to conquer the parts one by one while divided
