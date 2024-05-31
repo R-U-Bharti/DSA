@@ -29,7 +29,8 @@ void slidingWindow(vector<int> arr, int key)
 
 int main()
 {
-    vector<int> arr = {1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 5};
+    // vector<int> arr = {1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 5};
+    vector<int> arr = {1, 9, -1, -2, 7, 3, -1, 2};
     int key = 4;
     slidingWindow(arr, key);
 }
