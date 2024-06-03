@@ -19,15 +19,18 @@ void printArray(vector<int> arr)
 }
 
 // APPROACH 1
+
+// To get max number
 int getMaxNumber(vector<int> &arr, vector<int> &max_array)
 {
     int max_number = INT_MIN;
 
     for (int i = 0; i < arr.size(); i++)
     {
-
+        //check if number exist in max array
         auto check = find(max_array.begin(), max_array.end(), arr[i]);
 
+        // if not exist then check max number
         if (check == max_array.end())
         {
             max_number = max(max_number, arr[i]);
@@ -47,11 +50,11 @@ int kthLargestElement(vector<int> arr, int k)
     // return nums[k-1];
 
     // 🚀Without Sorting
-    vector<int> max_array;
-    int max_number = 0;
-    unordered_map<int, int> freq;
-    int idx = k;
-    int res = arr[0];
+    vector<int> max_array; // init max array where we store max element 
+    int max_number = 0; // init max number
+    unordered_map<int, int> freq; // to store freq. of each element
+    int idx = k; // store key
+    int res = arr[0]; // store result
 
     // store element freq.
     for (int el : arr)
@@ -62,7 +65,7 @@ int kthLargestElement(vector<int> arr, int k)
     for (auto const i : freq)
         cout << i.first << "-->" << i.second << endl;
 
-    for (int i = 0; i < arr.size(); i++)
+    for (int i = 0; i < arr.size(); i++) // iterate array
     {
         cout << "\nmax array: ";
         printArray(max_array);
