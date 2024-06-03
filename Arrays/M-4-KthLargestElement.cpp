@@ -18,7 +18,7 @@ void printArray(vector<int> arr)
         cout << nums << " ";
 }
 
-APPROACH 1
+// APPROACH 1
 int getMaxNumber(vector<int> &arr, vector<int> &max_array)
 {
     int max_number = INT_MIN;
